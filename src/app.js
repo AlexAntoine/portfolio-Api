@@ -10,8 +10,8 @@ app.use(express.json());
 app.use(userRouter);
 
 
-// localDB();
-prodDB();
+localDB();
+// prodDB();
 
 app.listen(port,()=>{
     console.log(`server is listening on port ${port}`);

@@ -2,8 +2,7 @@ require('dotenv').config({path: './config/.env'});
 const mongoose =  require('mongoose');
 
 const localDB = ()=>{
-     mongoose.connect(process.env.LOCAL, {useNewUrlParser:true, useUnifiedTopology: true, });
-     console.log('local db is connected');
+     return mongoose.connect(process.env.LOCAL, {useNewUrlParser:true, useUnifiedTopology: true, });
 }
 
 const prodDB = ()=>{

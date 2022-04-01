@@ -1,0 +1,11 @@
+need to create project model
+
+portfolio
+
+- title
+- summary
+- image
+- technologies
+
+Create model for project images and label
+

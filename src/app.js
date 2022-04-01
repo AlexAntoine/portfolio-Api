@@ -1,5 +1,5 @@
 const express = require('express');
-const {localDB} = require('./db/mongoose');
+const {localDB, prodDB} = require('./db/mongoose');
 const userRouter = require('./router/user');
 
 const port = process.env.PORT || 3000;

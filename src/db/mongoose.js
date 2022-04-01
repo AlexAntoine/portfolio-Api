@@ -6,7 +6,7 @@ const localDB = ()=>{
 }
 
 const prodDB = ()=>{
-    return mongoose.connect(process.env.PRODUCTION, {useNewUrlParser:true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify:true });
+    return mongoose.connect(process.env.PRODUCTION, {useNewUrlParser:true, useUnifiedTopology: true,});
 }
 
 module.exports = {

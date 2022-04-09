@@ -1,1 +1,7 @@
 Create route that displays the name and about of each project in the database.
+
+Error: Error when saving technologies, receiveing this message "Can't save() the same doc multiple times in parallel".
+this may be happening because form-urlencoded data going in looks like this tool[0] tool[1] tool[2] tool[3]. Need to figure out
+a way to save data into the array. This problem also crashes the live app. The data still save into the database tho.
+
+Refactoring routes and data model.

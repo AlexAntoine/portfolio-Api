@@ -16,6 +16,13 @@ router.get('/',(req, res)=>{
     res.send('Hello from Portfolio Api')
 });
 
+router.get('/projects', async(req, res)=>{
+
+    const projects = await Project.findOne();
+    console.log(projects);
+        
+})
+
 router.get('/:name', async(req, res)=>{
 
     const {name} = req.params;
@@ -56,6 +63,7 @@ router.post('/',async(req, res)=>{
 router.post('/:name/main-image', upload.single('image'),async(req, res)=>{
     const project = await Project.findOne({name: req.params.name})
 
+    console.log(project)
     if(!project){
        return res.status(404).send('project doesn\'t exist. Check URL');
     }

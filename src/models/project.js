@@ -12,50 +12,39 @@ const projectSchema  = new mongoose.Schema({
         type:Buffer
     },
 
-    description:[{ 
-        about:{
-            type: String
-        },
-
-        github_link:{
-            type: String
-        }
-    }],
-
-    description:{
-        about:{
-            type:String
-        },
-
-        github_link:{
-            type:String
-        }
+    about:{
+        type: String,
+        required: true
     },
 
-    technologies:{
-        website_link:{
-            type: String
-        },
+    github:{
+        type:String,
+        require:true,
+        unique: true
+    },
 
-        tools:[{
-           tool:{
-               type: String
-           }
-        }]
+    website:{
+        type: String,
+        match:[
+            /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
+            ,'Please add a valid URL with HTTP or HTTPS'
+        ]
+    },
+
+    tools:{
+        type:[String]
     },
 
     content:{
-        stuff:[{
-            content_text:{
-                type: String,
-                required: true 
-            },
+        type: Array,
 
-            content_image:{
-                type: Buffer,
-                required: true 
-            }
-        }]
+       description: {
+           type:String
+       }, 
+       
+       image: {
+           type: Buffer
+       }
     },
 });
 

@@ -16,6 +16,14 @@ app.use('/api/v1/projects', userProjects);
 localDB();
 // prodDB();
 
-app.listen(port,()=>{
+const server = app.listen(port,()=>{
     console.log(`server is listening on port ${port}`);
+})
+
+process.on('unhandledRejection',(err, promise)=>{
+    console.log(`Error: ${err.message}`);
+
+    server.close(()=>{
+        process.exit(1);
+    });
 })

@@ -13,7 +13,13 @@ exports.getSingleProject = async(req, res, next)=>{
 
 exports.createProject = async(req, res, next)=>{
 
-    const result = await projects.create(req.body);
+    try {
+        const result = await projects.create(req.body);
 
-    console.log(result)
+        res.status(201).json({sucess:true, data:result});
+    } catch (error) {
+        
+        res.status(400).json({sucess:true, data: error});
+    }
+   
 }

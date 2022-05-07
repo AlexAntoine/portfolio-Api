@@ -8,10 +8,10 @@ exports.getAllProjects = async(req, res, next)=>{
     try {
         const result = await projects.find();
 
-        res.status(200).json({sucess:true, data:result});
+        res.status(200).json({success:true,count: result.length, data:result});
 
     } catch (error) {
-        res.staus(404).json({sucess:false});
+        res.staus(404).json({success:false});
     }
     
 }

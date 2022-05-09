@@ -8,4 +8,8 @@ Done: Refactoring routes and data model.
 
 Done: Add error handling techniques learn from last course
 
-Add sorting and filtering data
+Done: Add filtering
+
+Add sorting 
+
+Done: Add Select

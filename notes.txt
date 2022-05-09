@@ -6,4 +6,4 @@ a way to save data into the array. This problem also crashes the live app. The d
 
 Done: Refactoring routes and data model.
 
-Add error handling techniques learn from last course
+Done: Add error handling techniques learn from last course

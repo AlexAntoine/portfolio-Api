@@ -5,7 +5,7 @@ const ErrorResponse = require('../../utils/errorResponse');
 
 // use upload.single to upload images
 
-exports.getAllProjects = async(req, res, next)=>{
+exports.getAllProjects = asynceHandler(async(req, res, next)=>{
 
     try {
         const result = await projects.find();
@@ -16,7 +16,7 @@ exports.getAllProjects = async(req, res, next)=>{
         res.staus(404).json({success:false});
     }
     
-}
+});
 
 exports.getSingleProject = asyncHandler(async(req, res, next)=>{
 
@@ -31,7 +31,7 @@ exports.getSingleProject = asyncHandler(async(req, res, next)=>{
    
 });
 
-exports.createProject = async(req, res, next)=>{
+exports.createProject = async(async(req, res, next)=>{
 
     try {
         const result = await projects.create(req.body);
@@ -42,4 +42,4 @@ exports.createProject = async(req, res, next)=>{
         res.status(400).json({sucess:true, data: error});
     }
    
-}
+});

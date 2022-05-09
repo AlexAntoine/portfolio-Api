@@ -1,6 +1,7 @@
 require('dotenv').config({path: './config/.env'});
 const express = require('express');
 const {localDB, prodDB} = require('./db/mongoose');
+const errorHandler = require('./middleware/error');
 const userProjects = require('./router/projectsRoutes');
 
 const port = process.env.PORT || 3000;
@@ -12,6 +13,7 @@ app.use(express.json());
 
 app.use('/api/v1/projects', userProjects);
 
+app.use(errorHandler);
 
 localDB();
 // prodDB();

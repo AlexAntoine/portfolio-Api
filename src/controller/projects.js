@@ -6,16 +6,32 @@ const ErrorResponse = require('../../utils/errorResponse');
 // use upload.single to upload images
 
 exports.getAllProjects = asyncHandler(async(req, res, next)=>{
+    let query;
 
-    try {
-        const result = await projects.find();
+    const reqQuery = {...req.query};
 
-        res.status(200).json({success:true,count: result.length, data:result});
+    //FIELDS TO EXCULDE
+    const removeFields = ['select'];
 
-    } catch (error) {
-        res.staus(404).json({success:false});
+    //Loop over removeFields and delete them from reqQuery
+    removeFields.forEach(param => reqQuery[param])
+
+    let queryString = JSON.stringify(reqQuery);
+
+    // queryString = queryString.replace(/\b(gt||gte|lt|lte|in)\b/g, match => `$${match}`);
+
+    query = projects.find(JSON.parse(queryString));
+
+    //Select Fields
+    if(req.query.select){
+        const fields = req.query.select.split(',').join(' ');
+
+        query = query.select(fields);
     }
-    
+
+    const result = await query;
+
+    res.status(200).json({success:true,count: result.length, data:result});
 });
 
 exports.getSingleProject = asyncHandler(async(req, res, next)=>{

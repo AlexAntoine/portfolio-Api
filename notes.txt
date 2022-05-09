@@ -7,3 +7,5 @@ a way to save data into the array. This problem also crashes the live app. The d
 Done: Refactoring routes and data model.
 
 Done: Add error handling techniques learn from last course
+
+Add sorting and filtering data

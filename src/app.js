@@ -15,8 +15,8 @@ app.use('/api/v1/projects', userProjects);
 
 app.use(errorHandler);
 
-localDB();
-// prodDB();
+// localDB();
+prodDB();
 
 const server = app.listen(port,()=>{
     console.log(`server is listening on port ${port}`);

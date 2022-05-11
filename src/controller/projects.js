@@ -11,7 +11,7 @@ exports.getAllProjects = asyncHandler(async(req, res, next)=>{
     const reqQuery = {...req.query};
 
     //FIELDS TO EXCULDE
-    const removeFields = ['select'];
+    const removeFields = ['select', 'sort'];
 
     //Loop over removeFields and delete them from reqQuery
     removeFields.forEach(param => reqQuery[param])
@@ -27,6 +27,14 @@ exports.getAllProjects = asyncHandler(async(req, res, next)=>{
         const fields = req.query.select.split(',').join(' ');
 
         query = query.select(fields);
+    }
+
+    //Sort
+    if(req.query.sort)
+    {
+        const sortBy = req.query.sort.split(',').join(' ');
+
+        query = query.sort(sortBy);
     }
 
     const result = await query;

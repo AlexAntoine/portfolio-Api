@@ -10,6 +10,6 @@ Done: Add error handling techniques learn from last course
 
 Done: Add filtering
 
-Add sorting 
+Done: Add sorting 
 
 Done: Add Select

@@ -39,19 +39,19 @@ exports.getAllProjects = asyncHandler(async(req, res, next)=>{
 
     const result = await query;
 
-    res.status(200).json({success:true,count: result.length, data:result});
+    res.status(200).json({success:true,count: result.length, project:result});
 });
 
 exports.getSingleProject = asyncHandler(async(req, res, next)=>{
 
-    const project = await projects.findOne({name:req.params.name});
+    const result = await projects.findOne({name:req.params.name});
     
     if(!project)
     {
        return next(new ErrorResponse(`Bootcamp cannot be found with name of ${req.params.name}`, 404));
     }
 
-    res.status(200).json({sucess: true, data:project});
+    res.status(200).json({sucess: true, project:result});
    
 });
 
@@ -60,10 +60,10 @@ exports.createProject = asyncHandler(async(req, res, next)=>{
     try {
         const result = await projects.create(req.body);
 
-        res.status(201).json({sucess:true, data:result});
+        res.status(201).json({sucess:true, project:result});
     } catch (error) {
         
-        res.status(400).json({sucess:true, data: error});
+        res.status(400).json({sucess:true, project: error});
     }
    
 });

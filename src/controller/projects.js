@@ -46,7 +46,7 @@ exports.getSingleProject = asyncHandler(async(req, res, next)=>{
 
     const result = await projects.findOne({name:req.params.name});
     
-    if(!project)
+    if(!result)
     {
        return next(new ErrorResponse(`Bootcamp cannot be found with name of ${req.params.name}`, 404));
     }
